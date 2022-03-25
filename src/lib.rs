@@ -214,7 +214,7 @@ fn insert_html_element(
 		event_bindings,
 	} = *element;
 
-	match name {
+	match name.to_ascii_uppercase().as_str() {
 		lignin_schema::html::elements::a::TAG_NAME => {
 			let rtf = collect_text(content, depth_limit)?;
 			// let mut rtf = rtf.replace('\\', "\\\\");
