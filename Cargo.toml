@@ -1,13 +1,13 @@
 [package]
-name = "TODO_CRATE_NAME"
+name = "lignin-native-windows-gui"
 version = "0.0.1"
 authors = ["Tamme Schichler <tamme@schichler.dev>"]
 edition = "2018"
 description = "TODO_DESCRIPTION"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/Tamschi/TODO_CRATE_NAME"
-homepage = "https://github.com/Tamschi/TODO_CRATE_NAME/tree/v0.0.1"
-documentation = "https://docs.rs/TODO_CRATE_NAME/0.0.1"
+repository = "https://github.com/Tamschi/lignin-native-windows-gui"
+homepage = "https://github.com/Tamschi/lignin-native-windows-gui/tree/v0.0.1"
+documentation = "https://docs.rs/lignin-native-windows-gui/0.0.1"
 keywords = [] #TODO
 categories = [] #TODO
 readme = "README.md"
@@ -26,9 +26,17 @@ resolver = "2"
 publish = false
 
 [badges]
-is-it-maintained-issue-resolution = { repository = "Tamschi/TODO_CRATE_NAME" }
-is-it-maintained-open-issues = { repository = "Tamschi/TODO_CRATE_NAME" }
+is-it-maintained-issue-resolution = { repository = "Tamschi/lignin-native-windows-gui" }
+is-it-maintained-open-issues = { repository = "Tamschi/lignin-native-windows-gui" }
 maintenance = { status = "experimental" } # This may differ between branches.
+
+[dependencies]
+bumpalo = "3.9.1"
+lignin = { version = "0.1.0", features = ["callbacks"] }
+lignin-schema = { git = "https://github.com/Tamschi/lignin-schema.git", branch = "develop" }
+native-windows-gui = "1.0.12"
+num-traits = "0.2.14"
+tracing = "0.1.32"
 
 [dev-dependencies]
 cargo-husky = "1.5.0"
