@@ -30,6 +30,10 @@ is-it-maintained-issue-resolution = { repository = "Tamschi/lignin-native-window
 is-it-maintained-open-issues = { repository = "Tamschi/lignin-native-windows-gui" }
 maintenance = { status = "experimental" } # This may differ between branches.
 
+[features]
+default = ["a"]
+a = ["native-windows-gui/rich-textbox", "webbrowser"]
+
 [dependencies]
 bumpalo = "3.9.1"
 lignin = { version = "0.1.0", features = ["callbacks"] }
@@ -38,7 +42,7 @@ native-windows-gui = { version = "1.0.12", features = ["rich-textbox"] }
 num-traits = "0.2.14"
 tap = "1.0.1"
 tracing = "0.1.32"
-webbrowser = "0.6.0"
+webbrowser = { version = "0.6.0", optional = true }
 
 [dev-dependencies]
 cargo-husky = "1.5.0"

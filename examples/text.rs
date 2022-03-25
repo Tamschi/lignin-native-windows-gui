@@ -1,3 +1,5 @@
+//! Required features: (none)
+
 use lignin::Node;
 use lignin_native_windows_gui::LigninUi;
 use native_windows_gui as nwg;

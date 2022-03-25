@@ -9,7 +9,7 @@
 
 use bumpalo::Bump;
 use lignin::{CallbackRef, Element, Node, ReorderableFragment, ThreadBound};
-use lignin_schema::html::attributes::href;
+use lignin_schema::html::{attributes::href, elements::a};
 use native_windows_gui::{self as nwg, ControlHandle, NwgError, PartialUi};
 use nwg::{
 	bind_event_handler, unbind_event_handler, CharFormat, Event, EventHandler, Label,
@@ -215,7 +215,8 @@ fn insert_html_element(
 	} = *element;
 
 	match name.to_ascii_uppercase().as_str() {
-		lignin_schema::html::elements::a::TAG_NAME => {
+		#[cfg(feature = "a")]
+		a::TAG_NAME => {
 			let rtf = collect_text(content, depth_limit)?;
 			// let mut rtf = rtf.replace('\\', "\\\\");
 			// rtf.insert_str(0, "{\\colortbl\\red0\\green0\\blue255}\\fs100\\u");
@@ -268,7 +269,8 @@ fn insert_html_element(
 			Box::new((handlers, label)) as Box<dyn Any>
 		}
 
-		name => todo!("Insert element with name {:?}", name),
+		#[allow(unreachable_code)] // Necessary to specify type without other features.
+		name => todo!("Insert element with name {:?}", name) as Box<dyn Any>,
 	}
 	.pipe(Ok)
 }
