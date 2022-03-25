@@ -34,9 +34,11 @@ maintenance = { status = "experimental" } # This may differ between branches.
 bumpalo = "3.9.1"
 lignin = { version = "0.1.0", features = ["callbacks"] }
 lignin-schema = { git = "https://github.com/Tamschi/lignin-schema.git", branch = "develop" }
-native-windows-gui = "1.0.12"
+native-windows-gui = { version = "1.0.12", features = ["rich-textbox"] }
 num-traits = "0.2.14"
+tap = "1.0.1"
 tracing = "0.1.32"
+webbrowser = "0.6.0"
 
 [dev-dependencies]
 cargo-husky = "1.5.0"
